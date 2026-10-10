@@ -3,181 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Fadli | Junior Developer Portfolio</title>
+
+    <!-- Terapkan tema tersimpan sebelum halaman tampil (mencegah layar berkedip) -->
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem("theme");
+                var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                document.documentElement.setAttribute("data-bs-theme", saved || (prefersDark ? "dark" : "light"));
+            } catch (e) {
+                document.documentElement.setAttribute("data-bs-theme", "light");
+            }
+        })();
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap, Bootstrap Icons, Devicon (logo teknologi) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" rel="stylesheet">
+
+    <!-- Custom style (dimuat terakhir agar bisa menimpa Bootstrap) -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <nav>
-        <img src="" alt="Logo" class="logo">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#tech_stack">Tech Stack</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-root-margin="-30% 0px -60% 0px" tabindex="0">
+
+    <nav class="navbar navbar-expand-lg fixed-top site-nav" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand logo" href="#home">
+                <i class="bi bi-code-slash" aria-hidden="true"></i> Fadli
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                    aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list fs-2" aria-hidden="true"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tech_stack">Tech Stack</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode">
+                            <i class="bi bi-moon-stars-fill" aria-hidden="true"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
-    <div class="main-wrapper">
-        <div class="home">
-            <div class="home-content">
-                <div class="main-introduction">
-                    <h1>Hi, I'm <span>Fadli</span></h1>
-                    <p>Welcome to my portfolio website. I am a passionate junior developer with experience in Web Development, Python, Java, and Spring.</p>
-                    <a href="" download="">
-                        <button class="download-btn">Download Resume</button>
-                    </a>
-                    <div class="home-contacts-container">
-                        <a href="#" target="_blank">
-                            <img src="images/linkedin.png" alt="LinkedIn Icon">
+
+    <main class="main-wrapper">
+
+        <!-- HOME -->
+        <section class="home" id="home">
+            <div class="container home-content">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7 order-2 order-lg-1 main-introduction">
+                        <h1>Hi, I'm <span>Fadli</span></h1>
+                        <p class="lead">Welcome to my portfolio website. I am a passionate junior developer with experience in Web Development, Python, Java, and Spring.</p>
+                        <!-- TODO: ganti href dengan path resume kamu, mis. files/resume.pdf -->
+                        <a href="files/resume.pdf" download>
+                            <button type="button" class="btn btn-accent btn-lg download-btn">
+                                <i class="bi bi-download me-2" aria-hidden="true"></i>Download Resume
+                            </button>
                         </a>
-                        <a href="#" target="_blank">
-                            <img src="images/github.png" alt="GitHub Icon">
+                        <div class="home-contacts-container">
+                            <!-- TODO: isi href dengan link profil kamu -->
+                            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                            <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="mailto:you@example.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 order-1 order-lg-2 home-image">
+                        <img src="images/fadli.png" alt="Fadli's Image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="about section-alt" id="about">
+            <div class="container about-content">
+                <div class="row align-items-center g-5">
+                    <div class="col-md-5 col-lg-4 about-image">
+                        <img src="images/about.png" alt="Fadli's Image">
+                    </div>
+                    <div class="col-md-7 col-lg-8">
+                        <div class="about-text">
+                            <h2>About Me</h2>
+                            <p>I am a junior developer with a strong passion for coding and problem-solving. I have experience in Web Development, Python, Java, and Spring. I am always eager to learn new technologies and improve my skills.</p>
+                        </div>
+                        <div class="row g-3 about-experiences-counter">
+                            <div class="col-4">
+                                <div class="card-about-experience">
+                                    <h3 class="counter" data-count="10">10</h3>
+                                    <p>Projects</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card-about-experience">
+                                    <h3 class="counter" data-count="9">9</h3>
+                                    <p>Tech Stack</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card-about-experience">
+                                    <h3 class="counter" data-count="5">5</h3>
+                                    <p>Certificates</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="projects" id="projects">
+            <div class="container projects-content">
+                <h2 class="section-title">Projects</h2>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <article class="project-card">
+                            <!-- TODO: ganti dengan screenshot project -->
+                            <img src="images/project-1.png" alt="Project Name screenshot" class="project-img">
+                            <div class="project-body">
+                                <h4>Project Name</h4>
+                                <p>Explanation</p>
+                                <div class="project-techs">
+                                    <span class="project-tech-card" title="HTML"><i class="devicon-html5-plain colored"></i></span>
+                                    <span class="project-tech-card" title="CSS"><i class="devicon-css3-plain colored"></i></span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6">
+                        <article class="project-card">
+                            <img src="images/project-2.png" alt="Project Name screenshot" class="project-img">
+                            <div class="project-body">
+                                <h4>Project Name</h4>
+                                <p>Explanation</p>
+                                <div class="project-techs">
+                                    <span class="project-tech-card" title="HTML"><i class="devicon-html5-plain colored"></i></span>
+                                    <span class="project-tech-card" title="CSS"><i class="devicon-css3-plain colored"></i></span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH STACK -->
+        <section class="tech_stack section-alt" id="tech_stack">
+            <div class="container tech_stack-content">
+                <h2 class="section-title">Tech Stack</h2>
+                <div class="row g-3 tech_stack-cards">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="tech_stack-card">
+                            <i class="devicon-html5-plain colored" aria-hidden="true"></i>
+                            <p>HTML</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="tech_stack-card">
+                            <i class="devicon-css3-plain colored" aria-hidden="true"></i>
+                            <p>CSS</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="tech_stack-card">
+                            <i class="devicon-javascript-plain colored" aria-hidden="true"></i>
+                            <p>JavaScript</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="tech_stack-card">
+                            <i class="devicon-python-plain colored" aria-hidden="true"></i>
+                            <p>Python</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="tech_stack-card">
+                            <i class="devicon-java-plain colored" aria-hidden="true"></i>
+                            <p>Java</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="tech_stack-card">
+                            <i class="devicon-spring-original colored" aria-hidden="true"></i>
+                            <p>Spring</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACHIEVEMENTS -->
+        <section class="achievements" id="achievements">
+            <div class="container achievements-content">
+                <h2 class="section-title">Achievements</h2>
+                <div class="row g-4 achievements-cards">
+                    <div class="col-md-6">
+                        <article class="achievement-card">
+                            <!-- Gambar sertifikat tetap memakai image -->
+                            <img src="images/certificate.png" alt="Certificate Icon">
+                            <div class="achievement-body">
+                                <h4>Certificate Name</h4>
+                                <p>Explanation</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6">
+                        <article class="achievement-card">
+                            <img src="images/certificate.png" alt="Certificate Icon">
+                            <div class="achievement-body">
+                                <h4>Certificate Name</h4>
+                                <p>Explanation</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact section-alt" id="contact">
+            <div class="container contact-content">
+                <h2 class="section-title">Contact Me</h2>
+                <div class="row g-3 contact-container">
+                    <!-- TODO: isi href dengan email dan link profil kamu -->
+                    <div class="col-sm-6 col-lg-3">
+                        <a class="contact-card" href="mailto:you@example.com">
+                            <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+                            <h4>Email</h4>
+                            <p>Send me an email</p>
                         </a>
-                        <a href="#" target="_blank">
-                            <img src="images/instagram.png" alt="Instagram Icon">
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <a class="contact-card" href="#" target="_blank" rel="noopener">
+                            <i class="bi bi-linkedin" aria-hidden="true"></i>
+                            <h4>LinkedIn</h4>
+                            <p>Connect with me</p>
                         </a>
-                        <a href="#" target="_blank">
-                            <img src="images/emial.png" alt="Twitter Icon">
-                        </a>    
                     </div>
-                </div>
-                <div class="home-image">
-                    <img src="images/fadli.png" alt="Fadli's Image">
-                </div>
-            </div>
-        </div>
-        <div class="about">
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="images/about.png" alt="Fadli's Image">
-                </div>
-                <div class="about-text">
-                    <h2>About Me</h2>
-                    <p>I am a junior developer with a strong passion for coding and problem-solving. I have experience in Web Development, Python, Java, and Spring. I am always eager to learn new technologies and improve my skills.</p>
-                </div>
-                <div class="about-experiences-counter">
-                    <div class="card-about-experience">
-                        <h3>10</h3>
-                        <p>Projects</p>
+                    <div class="col-sm-6 col-lg-3">
+                        <a class="contact-card" href="#" target="_blank" rel="noopener">
+                            <i class="bi bi-instagram" aria-hidden="true"></i>
+                            <h4>Instagram</h4>
+                            <p>Follow my updates</p>
+                        </a>
                     </div>
-                    <div class="card-about-experience">
-                        <h3>9</h3>
-                        <p>Tech Stack</p>
-                    </div>
-                    <div class="card-about-experience">
-                        <h3>5</h3>
-                        <p>Certificates</p>
+                    <div class="col-sm-6 col-lg-3">
+                        <a class="contact-card" href="#" target="_blank" rel="noopener">
+                            <i class="bi bi-github" aria-hidden="true"></i>
+                            <h4>GitHub</h4>
+                            <p>Browse my code</p>
+                        </a>
                     </div>
                 </div>
             </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container text-center">
+            <h3>Fadli Ghobith Ats-Tsaqovy</h3>
+            <h5>Student | Junior Developer | Java Developer</h5>
+            <p>&copy; Fadli Ghobith <span id="year">2026</span></p>
         </div>
-        <div class="projects">
-            <div class="projects-content">
-                <div class="project-card">
-                    <img src>
-                    <h4>Project Name</h4>
-                    <p>Explanation</p>
-                    <div class="project-techs">
-                        <div class="project-tech-card">
-                            <img src="images/html.png" alt="HTML Icon">
-                        </div>
-                        <div class="project-tech-card">
-                            <img src="images/css.png" alt="HTML Icon">
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src>
-                    <h4>Project Name</h4>
-                    <p>Explanation</p>
-                    <div class="project-techs">
-                        <div class="project-tech-card">
-                            <img src="images/html.png" alt="HTML Icon">
-                        </div>
-                        <div class="project-tech-card">
-                            <img src="images/css.png" alt="HTML Icon">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="tech_stack">
-            <div class="tech_stack-content">
-                <h2>Tech Stack</h2>
-                <div class="tech_stack-cards">
-                    <div class="tech_stack-card">
-                        <img src="images/html.png" alt="HTML Icon">
-                        <p>HTML</p>
-                    </div>
-                    <div class="tech_stack-card">
-                        <img src="images/css.png" alt="CSS Icon">
-                        <p>CSS</p>
-                    </div>
-                    <div class="tech_stack-card">
-                        <img src="images/javascript.png" alt="JavaScript Icon">
-                        <p>JavaScript</p>
-                    </div>
-                    <div class="tech_stack-card">
-                        <img src="images/python.png" alt="Python Icon">
-                        <p>Python</p>
-                    </div>
-                    <div class="tech_stack-card">
-                        <img src="images/java.png" alt="Java Icon">
-                        <p>Java</p>
-                    </div>
-                    <div class="tech_stack-card">
-                        <img src="images/spring.png" alt="Spring Icon">
-                        <p>Spring</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="achievements">
-            <div class="achievements-content">
-                <h2>Achievements</h2>
-                <div class="achievements-cards">
-                    <div class="achievement-card">
-                        <img src="images/certificate.png" alt="Certificate Icon">
-                        <h4>Certificate Name</h4>
-                        <p>Explanation</p>
-                    </div>
-                    <div class="achievement-card">
-                        <img src="images/certificate.png" alt="Certificate Icon">
-                        <h4>Certificate Name</h4>
-                        <p>Explanation</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="contact">
-            <div class="contact-content">
-                <h2>Contact Me</h2>
-                <div class="contact-container">
-                    <div class="contact-card">
-                        <img src="images/email.png" alt="Email Icon">
-                        <h4>Email</h4>
-                    </div>
-                    <div class="contact-card">
-                        <img src="images/email.png" alt="Email Icon">
-                        <h4>LinkedIn</h4>
-                    </div>
-                    <div class="contact-card">
-                        <img src="images/email.png" alt="Email Icon">
-                        <h4>Instagram</h4>
-                    </div>
-                    <div class="contact-card">
-                        <img src="images/email.png" alt="Email Icon">
-                        <h4>GitHub</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <h3>Fadli Ghobith Ats-Tsaqovy</h3>
-        <h5>Student | Junior Developer | Java Developer</h5>
-        <p>&copy; Fadli Ghobith 2026</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
