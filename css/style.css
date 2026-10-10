@@ -216,3 +216,116 @@ section {
     border-radius: var(--radius-lg);
     background: var(--surface);
 }
+
+.about-image img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+}
+.about-text h2 {
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-bottom: 1rem;
+}
+.about-text p { font-size: 1.05rem; max-width: 38rem; }
+ 
+.about-experiences-counter { margin-top: 2rem; }
+.card-about-experience {
+    height: 100%;
+    padding: 1.25rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+.card-about-experience h3 {
+    margin: 0;
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+}
+.card-about-experience p { margin: 0; font-weight: 500; }
+
+.project-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color .2s, transform .2s;
+}
+.project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+.project-img,
+.project-img-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: var(--bg-alt);
+}
+.project-img-placeholder {
+    display: grid;
+    place-items: center;
+    font-size: 2.5rem;
+    color: var(--muted);
+}
+.project-body { padding: 1.5rem; }
+.project-body h4 { font-weight: 700; font-size: 1.35rem; }
+ 
+.project-techs { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.project-tech-card {
+    display: inline-grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.35rem;
+    background: var(--bg-alt);
+    border-radius: 50%;
+}
+
+.tech_stack-card {
+    height: 100%;
+    padding: 1.75rem 1rem;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+}
+.tech_stack-card i {
+    display: block;
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: .85rem;
+}
+.tech_stack-card p {
+    margin: 0;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.achievement-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+.achievement-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: contain;
+    padding: 1rem;
+    background: var(--bg-alt);
+}
+.achievement-body { padding: 1.5rem; }
+.achievement-body h4 { font-weight: 700; font-size: 1.25rem; }
+.achievement-body p { margin: 0; }
