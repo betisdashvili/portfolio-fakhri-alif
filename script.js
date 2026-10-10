@@ -155,9 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const slide = slides[current];
                 const duration = Number(slide.dataset.duration) || 4000;
 
-                slide.classList.add("active"); // fade in
+                slide.classList.add("active");
                 setTimeout(() => {
-                    slide.classList.remove("active"); // fade out
+                    slide.classList.remove("active");
                     current = (current + 1) % slides.length;
                     setTimeout(showNext, FADE_MS + 150);
                 }, duration);

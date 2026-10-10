@@ -57,7 +57,7 @@
                 <div class="row align-items-center g-5">
                     <div class="col-lg-7 order-2 order-lg-1 main-introduction">
                         <h1>Hi, I'm <span>Fadli</span></h1>
-                        <span>Ubah Ini ya Claude menjadi teks animasi bergantian, Java Developer, Junior Developer</span>
+                        <p class="role-line"><span id="typedRole" data-roles="Java Developer|Backend Developer|Web Developer">Java Developer</span></p>
                         <p class="lead">Welcome to my portfolio website. I am a passionate junior developer with experience in Web Development, Python, Java, and Spring.</p>
                         <a href="files/resume.pdf" download>
                             <button type="button" class="btn btn-accent btn-lg download-btn">
@@ -65,14 +65,20 @@
                             </button>
                         </a>
                         <div class="home-contacts-container">
-                            <a href="linkedin.com/in/fadli-ghobith-ats-tsaqovy-006ab9406?utm_source=share_via&utm_content=profile&utm_medium=member_android&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAacsz9_c09ZUZH832zvCfaU_J0qZiRHQqgxUMfqo6E1D3ABQ8N8Vl4b4HwOzHw_aem_55g8eDRxTFFiKMAWxFGdTg" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="https://www.linkedin.com/in/fadli-ghobith-ats-tsaqovy-006ab9406" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                             <a href="https://github.com/fadlighobith" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
                             <a href="https://www.instagram.com/girasjack/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                             <a href="mailto:fadligobith@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-5 order-1 order-lg-2 home-image">
-                        <img src="images/fadli.png" alt="Fadli's Image"> <!--Ubah ini menjadi animasi gambar gif bergantian ya Claude, dengan transisi fade in di awal dan fade out di akhir-->
+                        <div class="hero-slides" id="heroSlides">
+                            <img class="hero-static" src="images/fadli.png" alt="Fadli's Image">
+                            
+                            <img class="hero-slide" src="images/hero/fadli-1.gif" alt="" data-duration="4000">
+                            <img class="hero-slide" src="images/hero/fadli-2.gif" alt="" data-duration="4000">
+                            <img class="hero-slide" src="images/hero/fadli-3.gif" alt="" data-duration="4000">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,8 +123,8 @@
         <section class="projects" id="projects">
             <div class="container projects-content">
                 <h2 class="section-title">Projects</h2>
-                <div class="row g-4">
-                    <div class="col-md-6">
+                <div class="row g-3 g-md-4">
+                    <div class="col-6 col-md-4">
                         <article class="project-card">
                             <img src="images/projects/devyap.png" alt="Community Website Frontend screenshot" class="project-img">
                             <div class="project-body">
@@ -133,7 +139,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6 col-md-4">
                         <article class="project-card">
                             <img src="images/projects/jayasimha.png" alt="Python CLI Application screenshot" class="project-img">
                             <div class="project-body">
@@ -145,7 +151,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6 col-md-4">
                         <article class="project-card">
                             <img src="images/projects/crudphp.png" alt="PHP CRUD Website screenshot" class="project-img">
                             <div class="project-body">
@@ -158,7 +164,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6 col-md-4">
                         <article class="project-card">
                             <img src="images/projects/ytdlp.png" alt="yt-dlp CLI screenshot" class="project-img">
                             <div class="project-body">
@@ -170,7 +176,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6 col-md-4">
                         <article class="project-card">
                             <img src="images/projects/beschoolweb.png" alt="School Website Backend screenshot" class="project-img">
                             <div class="project-body">
@@ -193,55 +199,55 @@
             <div class="container tech_stack-content">
                 <h2 class="section-title">Tech Stack</h2>
                 <div class="row g-3 tech_stack-cards">
-                    <div class="col-6 col-md-4 col-lg-2">
+                    <div class="col-4 col-md-4 col-lg-2">
                         <div class="tech_stack-card">
                             <i class="devicon-java-plain colored" aria-hidden="true"></i>
                             <p>Java</p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-2">
+                    <div class="col-4 col-md-4 col-lg-2">
                         <div class="tech_stack-card">
                             <i class="devicon-spring-original colored" aria-hidden="true"></i>
                             <p>Spring</p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-2">
+                    <div class="col-4 col-md-4 col-lg-2">
                         <div class="tech_stack-card">
                             <i class="devicon-python-plain colored" aria-hidden="true"></i>
                             <p>Python</p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-2">
+                    <div class="col-4 col-md-4 col-lg-2">
                         <div class="tech_stack-card">
                             <i class="devicon-html5-plain colored" aria-hidden="true"></i>
                             <p>HTML</p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-2">
+                    <div class="col-4 col-md-4 col-lg-2">
                         <div class="tech_stack-card">
                             <i class="devicon-css3-plain colored" aria-hidden="true"></i>
                             <p>CSS</p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-2">
+                    <div class="col-4 col-md-4 col-lg-2">
                         <div class="tech_stack-card">
                             <i class="devicon-php-plain colored" aria-hidden="true"></i>
                             <p>PHP</p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-2">
+                    <div class="col-4 col-md-4 col-lg-2">
                         <div class="tech_stack-card">
                             <i class="devicon-mysql-plain colored" aria-hidden="true"></i>
                             <p>MySQL</p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-2">
+                    <div class="col-4 col-md-4 col-lg-2">
                         <div class="tech_stack-card">
                             <i class="devicon-postgresql-plain colored" aria-hidden="true"></i>
                             <p>PostgreSQL</p>
                         </div>
                     </div>
-                    <div class="col-6 col-md-4 col-lg-2">
+                    <div class="col-4 col-md-4 col-lg-2">
                         <div class="tech_stack-card">
                             <i class="devicon-maven-plain colored" aria-hidden="true"></i>
                             <p>Maven</p>
@@ -254,8 +260,8 @@
         <section class="achievements" id="achievements">
             <div class="container achievements-content">
                 <h2 class="section-title">Achievements</h2>
-                <div class="row g-4 achievements-cards">
-                    <div class="col-md-6">
+                <div class="row g-3 g-md-4 achievements-cards">
+                    <div class="col-6 col-md-4">
                         <article class="achievement-card">
                             <img src="images/certificates/airlanggacompetition.jpeg" alt="Certificate Airlangga Competition 1">
                             <div class="achievement-body">
@@ -264,7 +270,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6 col-md-4">
                         <article class="achievement-card">
                             <img src="images/certificates/dicoding-financial.png" alt="Certificate Introduction to Financial Literacy">
                             <div class="achievement-body">
@@ -273,7 +279,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6 col-md-4">
                         <article class="achievement-card">
                             <img src="images/certificates/minarsih.jpeg" alt="Certificate Laravel Framework Training">
                             <div class="achievement-body">
@@ -282,7 +288,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6 col-md-4">
                         <article class="achievement-card">
                             <img src="images/certificates/festika.jpeg" alt="Certificate Festika Jatim 2025">
                             <div class="achievement-body">
@@ -291,7 +297,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6 col-md-4">
                         <article class="achievement-card">
                             <img src="images/certificates/ukk.jpeg" alt="Certificate Competency Testing Unit">
                             <div class="achievement-body">
@@ -300,7 +306,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6 col-md-4">
                         <article class="achievement-card">
                             <img src="images/certificates/aseanai.png" alt="Certificate AI Learning">
                             <div class="achievement-body">
@@ -309,7 +315,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6 col-md-4">
                         <article class="achievement-card">
                             <img src="images/certificates/gamelab.png" alt="Certificate Construct Training">
                             <div class="achievement-body">
@@ -318,7 +324,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6 col-md-4">
                         <article class="achievement-card">
                             <img src="images/certificates/senopati.png" alt="Certificate Artificial Intelligence Literacy">
                             <div class="achievement-body">
@@ -343,7 +349,7 @@
                         </a>
                     </div>
                     <div class="col-sm-6 col-lg-3">
-                        <a class="contact-card" href="linkedin.com/in/fadli-ghobith-ats-tsaqovy-006ab9406?utm_source=share_via&utm_content=profile&utm_medium=member_android&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAacsz9_c09ZUZH832zvCfaU_J0qZiRHQqgxUMfqo6E1D3ABQ8N8Vl4b4HwOzHw_aem_55g8eDRxTFFiKMAWxFGdTg" target="_blank" rel="noopener">
+                        <a class="contact-card" href="https://www.linkedin.com/in/fadli-ghobith-ats-tsaqovy-006ab9406" target="_blank" rel="noopener">
                             <i class="bi bi-linkedin" aria-hidden="true"></i>
                             <h4>LinkedIn</h4>
                             <p>Connect with me</p>
