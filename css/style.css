@@ -27,3 +27,41 @@
     --accent-hover: #9bb4ff;
     --accent-ink: #0d1424;
 }
+
+html { scroll-behavior: smooth; }
+ 
+body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    outline: none;
+}
+ 
+h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    color: var(--ink);
+    letter-spacing: -0.02em;
+}
+ 
+p { color: var(--muted); }
+ 
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+}
+ 
+section {
+    padding: 6rem 0;
+    scroll-margin-top: 4.5rem;
+}
+ 
+.section-alt { background: var(--bg-alt); }
+ 
+.section-title {
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-bottom: 2.5rem;
+}
