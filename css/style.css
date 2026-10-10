@@ -126,3 +126,93 @@ section {
         margin-top: .5rem;
     }
 }
+
+.btn-accent {
+    --bs-btn-bg: var(--accent);
+    --bs-btn-border-color: var(--accent);
+    --bs-btn-color: var(--accent-ink);
+    --bs-btn-hover-bg: var(--accent-hover);
+    --bs-btn-hover-border-color: var(--accent-hover);
+    --bs-btn-hover-color: var(--accent-ink);
+    --bs-btn-active-bg: var(--accent-hover);
+    --bs-btn-active-border-color: var(--accent-hover);
+    --bs-btn-active-color: var(--accent-ink);
+    font-weight: 700;
+    border-radius: 999px;
+    padding: .8rem 1.75rem;
+}
+
+.home {
+    padding-top: 9rem;
+    padding-bottom: 6rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow-x: clip;
+}
+.home .container { width: 100%; }
+ 
+.main-introduction h1 {
+    font-weight: 700;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1rem;
+    color: var(--muted);
+}
+.main-introduction h1 span {
+    display: block;
+    font-weight: 800;
+    font-size: clamp(4rem, 12vw, 8rem);
+    line-height: .95;
+    letter-spacing: -0.045em;
+    color: var(--ink);
+}
+.main-introduction .lead {
+    max-width: 34rem;
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+}
+ 
+.home-contacts-container {
+    display: flex;
+    gap: .75rem;
+    margin-top: 2rem;
+}
+.home-contacts-container a {
+    display: inline-grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.3rem;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--surface);
+    text-decoration: none;
+    transition: color .2s, border-color .2s, transform .2s;
+}
+.home-contacts-container a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-3px);
+}
+ 
+.home-image {
+    position: relative;
+    max-width: 380px;
+    margin-inline: auto;
+}
+.home-image::before {
+    content: "";
+    position: absolute;
+    inset: 1rem -1rem -1rem 1rem;
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-lg);
+}
+.home-image img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+}
