@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         root.setAttribute("data-bs-theme", theme);
         try { localStorage.setItem("theme", theme); } catch (e) { /* ignored */ }
 
+        if (!themeToggle) return;
         const icon = themeToggle.querySelector("i");
         const isDark = theme === "dark";
         icon.className = isDark ? "bi bi-sun-fill" : "bi bi-moon-stars-fill";
@@ -15,9 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     applyTheme(root.getAttribute("data-bs-theme") || "light");
-    themeToggle.addEventListener("click", () => {
-        applyTheme(root.getAttribute("data-bs-theme") === "dark" ? "light" : "dark");
-    });
+    if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+            applyTheme(root.getAttribute("data-bs-theme") === "dark" ? "light" : "dark");
+        });
+    }
 
     const nav = document.getElementById("mainNav");
     const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 10);
@@ -80,4 +83,86 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const year = document.getElementById("year");
     if (year) year.textContent = new Date().getFullYear();
+
+    const typedRole = document.getElementById("typedRole");
+    if (typedRole) {
+        const roles = (typedRole.dataset.roles || "")
+            .split("|")
+            .map((r) => r.trim())
+            .filter(Boolean);
+
+        if (roles.length > 1) {
+            if (reduceMotion) {
+                let i = 0;
+                setInterval(() => {
+                    i = (i + 1) % roles.length;
+                    typedRole.textContent = roles[i];
+                }, 2500);
+            } else {
+                let roleIndex = 0;
+                let charIndex = 0;
+                let deleting = false;
+                typedRole.textContent = "";
+
+                const type = () => {
+                    const word = roles[roleIndex];
+                    let delay;
+
+                    if (!deleting) {
+                        charIndex++;
+                        delay = 90;
+                        if (charIndex === word.length) { deleting = true; delay = 1800; }
+                    } else {
+                        charIndex--;
+                        delay = 45;
+                        if (charIndex === 0) {
+                            deleting = false;
+                            roleIndex = (roleIndex + 1) % roles.length;
+                            delay = 400;
+                        }
+                    }
+                    typedRole.textContent = word.slice(0, charIndex);
+                    setTimeout(type, delay);
+                };
+                type();
+            }
+        }
+    }
+
+    const heroSlides = document.getElementById("heroSlides");
+    if (heroSlides && !reduceMotion) {
+        const FADE_MS = 700;
+
+        const checkLoaded = (img) => new Promise((resolve) => {
+            if (img.complete) return resolve(img.naturalWidth > 0 ? img : null);
+            img.addEventListener("load", () => resolve(img), { once: true });
+            img.addEventListener("error", () => resolve(null), { once: true });
+        });
+
+        Promise.all([...heroSlides.querySelectorAll(".hero-slide")].map(checkLoaded)).then((results) => {
+            const slides = results.filter(Boolean);
+            if (!slides.length) return;
+
+            heroSlides.classList.add("has-slides");
+
+            if (slides.length === 1) {
+                slides[0].classList.add("active");
+                return;
+            }
+
+            let current = 0;
+            const showNext = () => {
+                const slide = slides[current];
+                const duration = Number(slide.dataset.duration) || 4000;
+
+                slide.classList.add("active"); // fade in
+                setTimeout(() => {
+                    slide.classList.remove("active"); // fade out
+                    current = (current + 1) % slides.length;
+                    setTimeout(showNext, FADE_MS + 150);
+                }, duration);
+            };
+            showNext();
+        });
+    }
 });
