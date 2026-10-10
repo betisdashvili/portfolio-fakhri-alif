@@ -329,3 +329,42 @@ section {
 .achievement-body { padding: 1.5rem; }
 .achievement-body h4 { font-weight: 700; font-size: 1.25rem; }
 .achievement-body p { margin: 0; }
+
+.contact-card {
+    height: 100%;
+    display: block;
+    padding: 2rem 1.25rem;
+    text-align: center;
+    text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    transition: border-color .2s, transform .2s;
+}
+.contact-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+.contact-card i {
+    display: block;
+    font-size: 2.25rem;
+    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+.contact-card h4 { font-weight: 700; font-size: 1.2rem; margin-bottom: .25rem; }
+.contact-card p { margin: 0; font-size: .95rem; }
+
+.site-footer {
+    padding: 3rem 0;
+    border-top: 1px solid var(--line);
+}
+.site-footer h3 { font-size: 1.35rem; font-weight: 800; margin-bottom: .25rem; }
+.site-footer h5 { font-family: var(--font-body); font-size: 1rem; font-weight: 500; color: var(--muted); }
+.site-footer p { margin: 1rem 0 0; font-size: .9rem; }
+ 
+/* ---------- Motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+}
