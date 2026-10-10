@@ -1,0 +1,29 @@
+:root {
+    --font-display: "Bricolage Grotesque", "Segoe UI", sans-serif;
+    --font-body: "DM Sans", "Segoe UI", sans-serif;
+ 
+    --bg: #f5f7fb;
+    --bg-alt: #e9eef7;
+    --surface: #ffffff;
+    --ink: #12203a;
+    --muted: #5b6a82;
+    --line: #d9e0ec;
+    --accent: #2b59e0;
+    --accent-hover: #1f46bd;
+    --accent-ink: #ffffff;
+ 
+    --radius-lg: 1.75rem;
+    --radius-md: 1rem;
+}
+ 
+[data-bs-theme="dark"] {
+    --bg: #0d1424;
+    --bg-alt: #111a2e;
+    --surface: #162139;
+    --ink: #e8eefa;
+    --muted: #9aa9c4;
+    --line: #24314d;
+    --accent: #7a9bff;
+    --accent-hover: #9bb4ff;
+    --accent-ink: #0d1424;
+}
