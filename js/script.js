@@ -371,4 +371,66 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    const aboutImage = document.querySelector(".about-image img");
+
+    if (aboutImage) {
+        const aboutImageCandidates = [
+            aboutImage.getAttribute("src"),
+            "images/fadli2.jpeg",
+            "images/fadli3.jpg",
+            "images/fadli4.jpeg",
+            "images/fadli5.jpeg",
+            "images/fadli6.jpeg",
+            "images/fadli7.jpeg",
+            "images/fadli1.png"
+        ];
+        const uniqueSources = [...new Set(aboutImageCandidates.filter(Boolean))];
+
+        const preload = (src) => new Promise((resolve) => {
+            const probe = new Image();
+            probe.onload = () => resolve(src);
+            probe.onerror = () => resolve(null);
+            probe.src = src;
+        });
+
+        Promise.all(uniqueSources.map(preload)).then((results) => {
+            const sources = results.filter(Boolean);
+            if (sources.length < 2) return;
+
+            let index = 0;
+            let busy = false;
+
+            aboutImage.classList.add("is-switchable");
+            aboutImage.setAttribute("role", "button");
+            aboutImage.setAttribute("tabindex", "0");
+            aboutImage.setAttribute("aria-label", "Click to change photo");
+
+            const changeImage = () => {
+                if (busy) return;
+                busy = true;
+                index = (index + 1) % sources.length;
+                aboutImage.classList.add("is-swapping");
+
+                setTimeout(() => {
+                    aboutImage.src = sources[index];
+
+                    const finish = () => {
+                        aboutImage.classList.remove("is-swapping");
+                        setTimeout(() => { busy = false; }, 250);
+                    };
+                    if (aboutImage.decode) aboutImage.decode().then(finish, finish);
+                    else finish();
+                }, 250);
+            };
+
+            aboutImage.addEventListener("click", changeImage);
+            aboutImage.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    changeImage();
+                }
+            });
+        });
+    }
 });

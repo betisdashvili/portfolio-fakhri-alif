@@ -302,19 +302,55 @@ section {
     visibility: visible;
 }
 
+.about-image {
+    position: relative;
+    align-self: flex-start;
+}
 .about-image img {
+    display: block;
     width: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
     border-radius: var(--radius-lg);
     background: var(--surface);
+    user-select: none;
+    transition: opacity .25s ease, scale .25s ease;
 }
+.about-image img.is-switchable { cursor: pointer; }
+.about-image img.is-swapping {
+    opacity: 0;
+    scale: .97;
+}
+
 .about-text h2 {
+    margin-bottom: 1.5rem;
     font-weight: 800;
     font-size: clamp(2rem, 4vw, 2.75rem);
-    margin-bottom: 1rem;
 }
-.about-text p { font-size: 1.05rem; max-width: 38rem; }
+.about-text h2::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 4px;
+    margin-top: .75rem;
+    border-radius: 999px;
+    background: var(--accent);
+}
+.about-text p {
+    max-width: none;
+    margin-bottom: 1.15rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-wrap: pretty;
+    hyphens: auto;
+}
+.about-text h2 + p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--ink);
+}
+.about-text p:last-child { margin-bottom: 0; }
 
 .about-experiences-counter { margin-top: 2rem; }
 .card-about-experience {
@@ -515,13 +551,28 @@ section {
         font-size: 1.1rem;
     }
 
+    .about-content > .row { --bs-gutter-y: 1.5rem; }
+    .about-image {
+        max-width: 260px;
+        margin-inline: auto;
+    }
     .about-text h2 {
+        margin-bottom: 1rem;
         font-size: 1.75rem;
-        margin-bottom: .6rem;
+    }
+    .about-text h2::after {
+        width: 2.5rem;
+        height: 3px;
+        margin-top: .5rem;
     }
     .about-text p {
+        margin-bottom: .9rem;
         font-size: .95rem;
-        line-height: 1.55;
+        line-height: 1.7;
+    }
+    .about-text h2 + p {
+        font-size: 1.05rem;
+        line-height: 1.6;
     }
     .about-experiences-counter { margin-top: 1.25rem; }
     .card-about-experience { padding: .85rem .4rem; }
@@ -668,4 +719,23 @@ section {
 }
 [data-bs-theme="dark"] .btn-close {
     filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+@media (min-width: 768px) {
+    .about-image {
+        position: sticky;
+        top: 6.5rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .about-content > .row {
+        --bs-gutter-x: 2rem;
+        --bs-gutter-y: 2rem;
+    }
+    .about-text p {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+    .about-text h2 + p { font-size: 1.1rem; }
 }
