@@ -281,4 +281,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         revealTargets.forEach((el) => revealObserver.observe(el));
     }
+
+    const bgm = document.getElementById("bgm");
+    const musicToggle = document.getElementById("musicToggle");
+    const musicIcon = document.getElementById("musicIcon");
+
+    if (bgm && musicToggle) {
+        let isPlaying = false;
+
+        bgm.volume = 0.4;
+
+        musicToggle.addEventListener("click", () => {
+            if (isPlaying) {
+                bgm.pause();
+                musicIcon.className = "bi bi-volume-mute-fill";
+                isPlaying = false;
+            } else {
+                bgm.play().then(() => {
+                    musicIcon.className = "bi bi-volume-up-fill";
+                    isPlaying = true;
+                }).catch(error => {
+                    console.log("Gagal memutar audio: ", error);
+                });
+            }
+        });
+    }
 });
