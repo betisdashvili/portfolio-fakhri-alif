@@ -309,11 +309,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const sfxDownloadResume = "audio/download.mp3";
 
-    const clickableCards = document.querySelectorAll(".download-btn");
+    const clickableCard = document.querySelectorAll(".download-btn");
+
+    clickableCard.forEach(card => {
+        card.addEventListener("click", () => {
+            const selectedSound = sfxDownloadResume;
+
+            const sound = new Audio(selectedSound);
+            sound.volume = 1.0;
+            
+            sound.play().catch(error => {
+                console.log("SFX blocked by the browser: ", error);
+            });
+        });
+    });
+    
+    const sfxAchievement = "audio/achievement.mp3";
+
+    const clickableCards = document.querySelectorAll(".achievement-card");
 
     clickableCards.forEach(card => {
         card.addEventListener("click", () => {
-            const selectedSound = sfxDownloadResume;
+            const selectedSound = sfxAchievement;
 
             const sound = new Audio(selectedSound);
             sound.volume = 1.0;
