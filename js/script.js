@@ -326,6 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const introAudio = new Audio("audio/introduction.mp3");
     introAudio.volume = 1.0;
+    introAudio.load();
 
     const triggerIntro = () => {
         introAudio.play().then(() => {
