@@ -324,23 +324,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     
-    const sfxAchievement = "audio/achievement.mp3";
-
-    const clickableCards = document.querySelectorAll(".achievement-card");
-
-    clickableCards.forEach(card => {
-        card.addEventListener("click", () => {
-            const selectedSound = sfxAchievement;
-
-            const sound = new Audio(selectedSound);
-            sound.volume = 1.0;
-            
-            sound.play().catch(error => {
-                console.log("SFX blocked by the browser: ", error);
-            });
-        });
-    });
-
     const introAudio = new Audio("audio/introduction.mp3");
     introAudio.volume = 1.0;
 
