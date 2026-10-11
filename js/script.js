@@ -382,7 +382,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "images/fadli4.jpeg",
             "images/fadli5.jpeg",
             "images/fadli6.jpeg",
-            "images/fadli7.jpeg",
             "images/fadli1.png"
         ];
         const uniqueSources = [...new Set(aboutImageCandidates.filter(Boolean))];
