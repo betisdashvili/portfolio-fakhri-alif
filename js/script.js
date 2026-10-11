@@ -249,4 +249,36 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 4000);
         }
     }
+
+    const revealTargets = document.querySelectorAll(".project-card, .tech_stack-card, .achievement-card, .contact-card");
+
+    if ("IntersectionObserver" in window && revealTargets.length) {
+        const STAGGER_MS = 90;
+        const DURATION_MS = 750;
+
+        revealTargets.forEach((el) => {
+            el.classList.add("reveal");
+            if (reduceMotion) el.classList.add("reveal-soft");
+        });
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            const visible = entries.filter((entry) => entry.isIntersecting);
+
+            visible.forEach((entry, i) => {
+                const el = entry.target;
+                const delay = i * STAGGER_MS;
+
+                revealObserver.unobserve(el);
+                el.style.transitionDelay = delay + "ms";
+                el.classList.add("is-visible");
+
+                setTimeout(() => {
+                    el.style.transitionDelay = "";
+                    el.classList.remove("reveal", "reveal-soft", "is-visible");
+                }, delay + DURATION_MS);
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+
+        revealTargets.forEach((el) => revealObserver.observe(el));
+    }
 });
