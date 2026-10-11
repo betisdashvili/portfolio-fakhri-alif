@@ -349,6 +349,11 @@ section {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius-md);
+    transition: border-color .2s, transform .2s;
+}
+.tech_stack-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
 }
 .tech_stack-card i {
     display: block;
@@ -370,6 +375,11 @@ section {
     border: 1px solid var(--line);
     border-radius: var(--radius-lg);
     overflow: hidden;
+    transition: border-color .2s, transform .2s;
+}
+.achievement-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
 }
 .achievement-card img {
     width: 100%;
