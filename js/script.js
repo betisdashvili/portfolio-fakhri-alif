@@ -306,4 +306,68 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    const sfxDownloadResume = "audio/download.mp3";
+
+    const clickableCards = document.querySelectorAll(".download-btn");
+
+    clickableCards.forEach(card => {
+        card.addEventListener("click", () => {
+            const selectedSound = sfxDownloadResume;
+
+            const sound = new Audio(selectedSound);
+            sound.volume = 1.0;
+            
+            sound.play().catch(error => {
+                console.log("SFX blocked by the browser: ", error);
+            });
+        });
+    });
+
+    const introAudio = new Audio("audio/introduction.mp3");
+    introAudio.volume = 1.0;
+
+    const triggerIntro = () => {
+        introAudio.play().then(() => {
+            console.log("Audio intro played successfully!");
+        }).catch(error => {
+            console.log("Failed to play audio intro: ", error);
+        });
+
+        window.removeEventListener("click", triggerIntro);
+        window.removeEventListener("keydown", triggerIntro);
+        window.removeEventListener("touchstart", triggerIntro);
+    };
+
+    window.addEventListener("click", triggerIntro, { once: true });
+    window.addEventListener("keydown", triggerIntro, { once: true });
+    window.addEventListener("touchstart", triggerIntro, { once: true });
+
+    const achievementCards = document.querySelectorAll(".achievement-card");
+    const imageModalElement = document.getElementById("imageModal");
+
+    if (achievementCards.length > 0 && imageModalElement) {
+        const modalInstance = new bootstrap.Modal(imageModalElement);
+        const modalImg = document.getElementById("modalImg");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDesc = document.getElementById("modalDesc");
+
+        achievementCards.forEach(card => {
+            card.style.cursor = "pointer"; 
+
+            card.addEventListener("click", () => {
+                const img = card.querySelector("img");
+                const title = card.querySelector("h4") ? card.querySelector("h4").textContent : "";
+                const desc = card.querySelector("p") ? card.querySelector("p").textContent : "";
+
+                if (img && modalImg) {
+                    modalImg.src = img.src;
+                    if (modalTitle) modalTitle.textContent = title;
+                    if (modalDesc) modalDesc.textContent = desc;
+
+                    modalInstance.show();
+                }
+            });
+        });
+    }
 });

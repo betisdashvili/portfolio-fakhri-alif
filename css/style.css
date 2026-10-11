@@ -30,13 +30,18 @@
     --home-bg-opacity: .55;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scrollbar-width: none; }
+
+::-webkit-scrollbar {
+    display: none;
+}
 
 body {
     font-family: var(--font-body);
     background: var(--bg);
     color: var(--ink);
     line-height: 1.65;
+    -ms-overflow-style: none;
 }
 
 h1, h2, h3, h4, h5 {
@@ -646,9 +651,21 @@ section {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
-
 .music-toggle-btn:hover {
     transform: scale(1.1);
     border-color: var(--accent);
     color: var(--accent);
+}
+
+.modal-content {
+    background-color: var(--surface) !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--line) !important;
+    border-radius: var(--radius-lg) !important;
+}
+.modal-content p {
+    color: var(--muted) !important;
+}
+[data-bs-theme="dark"] .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
 }
