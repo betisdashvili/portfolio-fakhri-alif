@@ -442,26 +442,117 @@ section {
 }
 
 @media (max-width: 767.98px) {
-    .section-title { margin-bottom: 1.75rem; }
+    section { padding: 3.5rem 0; }
+
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .home { padding: 6rem 0 3rem; }
+    .home .row { --bs-gutter-y: 1.5rem; }
+    .home-image { max-width: 260px; }
+
+    .main-introduction h1 {
+        font-size: 1.1rem;
+        margin-bottom: .5rem;
+    }
+    .main-introduction h1 span { font-size: clamp(2.75rem, 14vw, 3.75rem); }
+    .role-line {
+        margin-bottom: .75rem;
+        font-size: 1.05rem;
+    }
+    .main-introduction .lead {
+        margin-bottom: 1.25rem;
+        font-size: .95rem;
+        line-height: 1.55;
+    }
+    .download-btn {
+        --bs-btn-font-size: .9rem;
+        padding: .6rem 1.35rem;
+    }
+    .home-contacts-container {
+        gap: .6rem;
+        margin-top: 1.25rem;
+    }
+    .home-contacts-container a {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.1rem;
+    }
+
+    .about-text h2 {
+        font-size: 1.75rem;
+        margin-bottom: .6rem;
+    }
+    .about-text p {
+        font-size: .95rem;
+        line-height: 1.55;
+    }
+    .about-experiences-counter { margin-top: 1.25rem; }
+    .card-about-experience { padding: .85rem .4rem; }
+    .card-about-experience h3 { font-size: 1.75rem; }
+    .card-about-experience p { font-size: .8rem; }
+
+    .projects .row,
+    .achievements .row {
+        --bs-gutter-x: .6rem;
+        --bs-gutter-y: .6rem;
+    }
 
     .project-card,
     .achievement-card { border-radius: var(--radius-md); }
 
+    .project-img,
+    .project-img-placeholder { aspect-ratio: 4 / 3; }
+
+    .achievement-card img {
+        aspect-ratio: 4 / 3;
+        padding: 0;
+    }
+
     .project-body,
-    .achievement-body { padding: .85rem; }
+    .achievement-body { padding: .6rem .7rem .7rem; }
 
     .project-body h4,
-    .achievement-body h4 { font-size: 1rem; }
+    .achievement-body h4 {
+        margin-bottom: .2rem;
+        font-size: .85rem;
+        line-height: 1.3;
+    }
 
     .project-body p,
-    .achievement-body p { font-size: .8rem; line-height: 1.5; }
+    .achievement-body p {
+        font-size: .72rem;
+        line-height: 1.4;
+    }
 
-    .project-tech-card { width: 2rem; height: 2rem; font-size: 1.1rem; }
-    .project-techs { gap: .35rem; margin-top: .75rem; }
+    .project-tech-card {
+        width: 1.75rem;
+        height: 1.75rem;
+        font-size: .95rem;
+    }
+    .project-techs { gap: .3rem; margin-top: .5rem; }
 
-    .tech_stack-card { padding: 1rem .35rem; }
-    .tech_stack-card i { font-size: 2.25rem; margin-bottom: .5rem; }
-    .tech_stack-card p { font-size: .8rem; }
+    .tech_stack-card { padding: .85rem .3rem; }
+    .tech_stack-card i { font-size: 2rem; margin-bottom: .4rem; }
+    .tech_stack-card p { font-size: .75rem; }
+
+    .contact-card { padding: 1.25rem .6rem; }
+    .contact-card i {
+        font-size: 1.75rem;
+        margin-bottom: .6rem;
+    }
+    .contact-card h4 { font-size: 1rem; }
+    .contact-card p { font-size: .75rem; }
+
+    .site-footer { padding: 2rem 0; }
+    .site-footer h3 { font-size: 1.1rem; }
+    .site-footer h5 { font-size: .85rem; }
+    .site-footer p {
+        margin-top: .6rem;
+        font-size: .8rem;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
