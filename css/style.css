@@ -11,6 +11,7 @@
     --accent: #e02b2b;
     --accent-hover: #bd1f1f;
     --accent-ink: #ffffff;
+    --home-bg-opacity: .3;
 
     --radius-lg: 1.75rem;
     --radius-md: 1rem;
@@ -26,6 +27,7 @@
     --accent: #ff7a7a;
     --accent-hover: #ff9b9b;
     --accent-ink: #240d0d;
+    --home-bg-opacity: .55;
 }
 
 html { scroll-behavior: smooth; }
@@ -169,6 +171,8 @@ section {
 }
 
 .home {
+    position: relative;
+    isolation: isolate;
     padding-top: 9rem;
     padding-bottom: 6rem;
     min-height: 100vh;
@@ -177,6 +181,30 @@ section {
     overflow-x: clip;
 }
 .home .container { width: 100%; }
+
+.home-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+.home-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.2);
+    filter: blur(24px) brightness(.6) saturate(1.2);
+    opacity: var(--home-bg-opacity);
+    transition: opacity .4s ease-in-out;
+}
+.home-bg img.is-hidden { opacity: 0; }
+.home-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, var(--bg) 100%);
+}
 
 .main-introduction h1 {
     font-weight: 700;
@@ -435,6 +463,7 @@ section {
     }
     .home .row { --bs-gutter-y: 2rem; }
     .home-image { max-width: 300px; }
+    .home-bg img { filter: blur(16px) brightness(.6) saturate(1.2); }
 
     .main-introduction { text-align: center; }
     .main-introduction .lead { margin-inline: auto; }

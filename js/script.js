@@ -213,6 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const heroSlides = document.getElementById("heroSlides");
     if (heroSlides) {
         const heroImage = document.getElementById("heroImage");
+        const homeBgImage = document.getElementById("homeBgImage");
         
         const gifList = [
             "images/hero/sukuna2.gif",
@@ -229,17 +230,20 @@ document.addEventListener("DOMContentLoaded", () => {
         ];
 
         if (gifList.length > 1) {
-            let currentIndex = 0;
+            let currentIndex = gifList.length - 1;
 
             setInterval(() => {
                 heroImage.style.opacity = "0";
+                if (homeBgImage) homeBgImage.classList.add("is-hidden");
 
                 setTimeout(() => {
                     currentIndex = (currentIndex + 1) % gifList.length;
                     
                     heroImage.src = gifList[currentIndex];
+                    if (homeBgImage) homeBgImage.src = gifList[currentIndex];
 
                     heroImage.style.opacity = "1";
+                    if (homeBgImage) homeBgImage.classList.remove("is-hidden");
                 }, 400);
 
             }, 4000);
