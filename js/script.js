@@ -216,17 +216,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const homeBgImage = document.getElementById("homeBgImage");
         
         const gifList = [
-            "images/hero/sukuna2.gif",
-            "images/hero/sukuna3.gif",
-            "images/hero/sukuna4.gif",
-            "images/hero/sukuna5.gif",
-            "images/hero/sukuna6.gif",
-            "images/hero/sukuna7.gif",
-            "images/hero/sukuna8.gif",
-            "images/hero/sukuna9.gif",
-            "images/hero/sukuna10.gif",
-            "images/hero/sukuna11.gif",
-            "images/hero/sukuna1.gif"
+            "images/hero/ashito2.gif",
+            "images/hero/ashito3.gif",
+            "images/hero/ashito4.gif",
+            "images/hero/ashito5.gif",
+            "images/hero/ashito1.gif"
         ];
 
         if (gifList.length > 1) {
@@ -307,43 +301,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const sfxDownloadResume = "audio/download.mp3";
-
-    const clickableCard = document.querySelectorAll(".download-btn");
-
-    clickableCard.forEach(card => {
-        card.addEventListener("click", () => {
-            const selectedSound = sfxDownloadResume;
-
-            const sound = new Audio(selectedSound);
-            sound.volume = 1.0;
-            
-            sound.play().catch(error => {
-                console.log("SFX blocked by the browser: ", error);
-            });
-        });
-    });
-    
-    const introAudio = new Audio("audio/introduction.mp3");
-    introAudio.volume = 1.0;
-    introAudio.load();
-
-    const triggerIntro = () => {
-        introAudio.play().then(() => {
-            console.log("Audio intro played successfully!");
-        }).catch(error => {
-            console.log("Failed to play audio intro: ", error);
-        });
-
-        window.removeEventListener("click", triggerIntro);
-        window.removeEventListener("keydown", triggerIntro);
-        window.removeEventListener("touchstart", triggerIntro);
-    };
-
-    window.addEventListener("click", triggerIntro, { once: true });
-    window.addEventListener("keydown", triggerIntro, { once: true });
-    window.addEventListener("touchstart", triggerIntro, { once: true });
-
     const achievementCards = document.querySelectorAll(".achievement-card");
     const imageModalElement = document.getElementById("imageModal");
 
@@ -377,12 +334,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (aboutImage) {
         const aboutImageCandidates = [
             aboutImage.getAttribute("src"),
-            "images/fadli2.jpeg",
-            "images/fadli3.jpg",
-            "images/fadli4.jpeg",
-            "images/fadli5.jpeg",
-            "images/fadli6.jpeg",
-            "images/fadli1.png"
+            "images/alif2.png",
+            "images/alif3.png",
+            "images/alif4.jpg",
+            "images/alif1.png"
         ];
         const uniqueSources = [...new Set(aboutImageCandidates.filter(Boolean))];
 
