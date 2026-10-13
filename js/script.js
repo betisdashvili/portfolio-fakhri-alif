@@ -153,17 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    document.querySelectorAll(".project-img").forEach((img) => {
-        img.addEventListener("error", () => {
-            const placeholder = document.createElement("div");
-            placeholder.className = "project-img-placeholder";
-            placeholder.setAttribute("role", "img");
-            placeholder.setAttribute("aria-label", img.alt);
-            placeholder.innerHTML = '<i class="bi bi-image" aria-hidden="true"></i>';
-            img.replaceWith(placeholder);
-        }, { once: true });
-    });
-
     const year = document.getElementById("year");
     if (year) year.textContent = new Date().getFullYear();
 
@@ -244,7 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    const revealTargets = document.querySelectorAll(".project-card, .tech_stack-card, .achievement-card, .contact-card");
+    const revealTargets = document.querySelectorAll(".achievement-card, .contact-card");
 
     if ("IntersectionObserver" in window && revealTargets.length) {
         const STAGGER_MS = 90;

@@ -360,10 +360,10 @@ section {
 }
 .about-text p:last-child { margin-bottom: 0; }
 
-.about-experiences-counter { margin-top: 2rem; }
+.about-experiences-counter { margin-top: 2.5rem; }
 .card-about-experience {
     height: 100%;
-    padding: 1.25rem 1rem;
+    padding: 2.25rem 1.5rem;
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius-md);
@@ -372,77 +372,12 @@ section {
 .card-about-experience h3 {
     margin: 0;
     font-weight: 800;
-    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-size: clamp(3.25rem, 7vw, 4.5rem);
+    line-height: 1.1;
     color: var(--accent);
     font-variant-numeric: tabular-nums;
 }
-.card-about-experience p { margin: 0; font-weight: 500; }
-
-.project-card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    transition: border-color .2s, transform .2s;
-}
-.project-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-4px);
-}
-.project-img,
-.project-img-placeholder {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    background: var(--bg-alt);
-}
-.project-img-placeholder {
-    display: grid;
-    place-items: center;
-    font-size: 2.5rem;
-    color: var(--muted);
-}
-.project-body { padding: 1.5rem; }
-.project-body h4 { font-weight: 700; font-size: 1.35rem; }
-
-.project-techs { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
-.project-tech-card {
-    display: inline-grid;
-    place-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.35rem;
-    background: var(--bg-alt);
-    border-radius: 50%;
-}
-
-.tech_stack-card {
-    height: 100%;
-    padding: 1.75rem 1rem;
-    text-align: center;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    transition: border-color .2s, transform .2s;
-}
-.tech_stack-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-4px);
-}
-.tech_stack-card i {
-    display: block;
-    font-size: 3rem;
-    line-height: 1;
-    margin-bottom: .85rem;
-}
-.tech_stack-card p {
-    margin: 0;
-    font-weight: 700;
-    color: var(--ink);
-}
+.card-about-experience p { margin: 0; font-size: 1.2rem; font-weight: 500; }
 
 .achievement-card {
     height: 100%;
@@ -471,7 +406,10 @@ section {
 
 .contact-card {
     height: 100%;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 2rem 1.25rem;
     text-align: center;
     text-decoration: none;
@@ -583,11 +521,10 @@ section {
         line-height: 1.6;
     }
     .about-experiences-counter { margin-top: 1.25rem; }
-    .card-about-experience { padding: .85rem .4rem; }
-    .card-about-experience h3 { font-size: 1.75rem; }
-    .card-about-experience p { font-size: .8rem; }
+    .card-about-experience { padding: 1.5rem 1rem; }
+    .card-about-experience h3 { font-size: 3rem; }
+    .card-about-experience p { font-size: 1rem; }
 
-    .projects .row,
     .achievements .row {
         --bs-gutter-x: .6rem;
         --bs-gutter-y: .6rem;
@@ -599,43 +536,25 @@ section {
         min-width: 0;
     }
 
-    .project-card,
     .achievement-card { border-radius: var(--radius-md); }
-
-    .project-img,
-    .project-img-placeholder { aspect-ratio: 4 / 3; }
 
     .achievement-card img {
         aspect-ratio: 4 / 3;
         padding: 0;
     }
 
-    .project-body,
     .achievement-body { padding: .6rem .7rem .7rem; }
 
-    .project-body h4,
     .achievement-body h4 {
         margin-bottom: .2rem;
         font-size: .85rem;
         line-height: 1.3;
     }
 
-    .project-body p,
     .achievement-body p {
         font-size: .72rem;
         line-height: 1.4;
     }
-
-    .project-tech-card {
-        width: 1.75rem;
-        height: 1.75rem;
-        font-size: .95rem;
-    }
-    .project-techs { gap: .3rem; margin-top: .5rem; }
-
-    .tech_stack-card { padding: .85rem .3rem; }
-    .tech_stack-card i { font-size: 2rem; margin-bottom: .4rem; }
-    .tech_stack-card p { font-size: .75rem; }
 
     .contact-card { padding: 1.25rem .6rem; }
     .contact-card i {
@@ -657,16 +576,9 @@ section {
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .theme-toggle:hover { transform: none; }
-    .project-card:hover,
+    .achievement-card:hover,
     .contact-card:hover,
     .home-contacts-container a:hover { transform: none; }
-}
-
-@media (max-width: 575.98px) {
-    .contact-container > div {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
 }
 
 .reveal {
@@ -681,7 +593,6 @@ section {
         transform .2s;
     will-change: opacity, translate, scale;
 }
-.tech_stack-card.reveal,
 .contact-card.reveal {
     translate: 0 16px;
     scale: .8;
@@ -692,7 +603,6 @@ section {
     scale: 1;
 }
 .reveal.reveal-soft,
-.tech_stack-card.reveal.reveal-soft,
 .contact-card.reveal.reveal-soft {
     translate: 0 0;
     scale: 1;
@@ -753,4 +663,9 @@ section {
         line-height: 1.75;
     }
     .about-text h2 + p { font-size: 1.1rem; }
+}
+
+.cv-hidden-layout {
+    visibility: hidden;
+    pointer-events: none;
 }
